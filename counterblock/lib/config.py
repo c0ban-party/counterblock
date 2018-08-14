@@ -17,11 +17,11 @@ REGULAR_DUST_SIZE = 5430
 MULTISIG_DUST_SIZE = 5430 * 2
 ORDER_BTC_DUST_LIMIT_CUTOFF = MULTISIG_DUST_SIZE
 
-BTC = 'BTC'
-XCP = 'XCP'
+BTC = 'RYO'
+XCP = 'XBP'
 
-BTC_NAME = "Bitcoin"
-XCP_NAME = "Counterparty"
+BTC_NAME = "c0ban"
+XCP_NAME = "c0ban-party"
 APP_NAME = "counterblock"
 COUNTERPARTY_APP_NAME = XCP_NAME.lower()
 
@@ -31,8 +31,8 @@ MAX_FORCED_REORG_NUM_BLOCKS = 20  # but let us go deeper when messages are out o
 QUOTE_ASSETS = ['BTC', 'XBTC', 'XCP']  # define the priority for quote asset
 MARKET_LIST_QUOTE_ASSETS = ['XCP', 'XBTC', 'BTC']  # define the order in the market list
 
-DEFAULT_BACKEND_PORT_TESTNET = 18332
-DEFAULT_BACKEND_PORT = 8332
+DEFAULT_BACKEND_PORT_TESTNET = 13882
+DEFAULT_BACKEND_PORT = 3882
 
 DEFAULT_LOG_SIZE_KB = 20000
 DEFAULT_LOG_NUM_FILES = 5
