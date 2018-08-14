@@ -76,9 +76,9 @@ def init_base(args):
     # first block
     global BLOCK_FIRST
     if TESTNET:
-        BLOCK_FIRST = 310000
+        BLOCK_FIRST = 1
     else:
-        BLOCK_FIRST = 278270
+        BLOCK_FIRST = 1
 
     global LATEST_BLOCK_INIT
     LATEST_BLOCK_INIT = {'block_index': BLOCK_FIRST, 'block_time': None, 'block_hash': None}
