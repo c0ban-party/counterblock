@@ -265,7 +265,7 @@ def get_assets_info(assetsList):
             if asset == config.BTC:
                 supply = blockchain.get_btc_supply(self.proxy, normalize=False)
             else:
-                supply = util.call_jsonrpc_api("get_supply", {'asset': 'XCP'}, abort_on_error=True)['result']
+                supply = util.call_jsonrpc_api("get_supply", {'asset': 'XBP'}, abort_on_error=True)['result']
 
             assets_info.append({
                 'asset': asset,
