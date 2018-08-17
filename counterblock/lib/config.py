@@ -78,7 +78,7 @@ def init_base(args):
     if TESTNET:
         BLOCK_FIRST = 1
     else:
-        BLOCK_FIRST = 1
+        BLOCK_FIRST = 100
 
     global LATEST_BLOCK_INIT
     LATEST_BLOCK_INIT = {'block_index': BLOCK_FIRST, 'block_time': None, 'block_hash': None}
