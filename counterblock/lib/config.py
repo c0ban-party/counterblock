@@ -76,7 +76,7 @@ def init_base(args):
     # first block
     global BLOCK_FIRST
     if TESTNET:
-        BLOCK_FIRST = 1
+        BLOCK_FIRST = 100
     else:
         BLOCK_FIRST = 100
 

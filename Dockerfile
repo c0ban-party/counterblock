@@ -13,10 +13,12 @@ RUN python3 setup.py develop
 
 COPY docker/server.conf /root/.config/counterblock/server.conf
 COPY docker/modules.conf /root/.config/counterblock/modules.conf
+COPY docker/modules.testnet.conf /root/.config/counterblock/modules.testnet.conf
 COPY docker/counterwallet.conf /root/.config/counterblock/counterwallet.conf
 COPY docker/start.sh /usr/local/bin/start.sh
 RUN chmod a+x /usr/local/bin/start.sh
 
 EXPOSE 4100 4101 4102 14100 14101 14102
 
-ENTRYPOINT ["start.sh"]
+# ENTRYPOINT ["start.sh"]
+CMD ["/sbin/init"]
