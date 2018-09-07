@@ -183,7 +183,7 @@ def get_users_pairs(addresses=[], max_pairs=12, quote_assets=config.MARKET_LIST_
                     top_pairs.append(top_pair)
                 all_assets += [currency_pair['base_asset'], currency_pair['quote_asset']]
 
-    if ('BTC' in quote_assets) and ('XBP/RYO' not in [p['base_asset'] + '/' + p['quote_asset'] for p in top_pairs]):
+    if ('RYO' in quote_assets) and ('XBP/RYO' not in [p['base_asset'] + '/' + p['quote_asset'] for p in top_pairs]):
         top_pairs.insert(0, {
             'base_asset': 'XBP',
             'quote_asset': 'RYO'
