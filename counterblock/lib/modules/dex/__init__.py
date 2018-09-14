@@ -498,7 +498,7 @@ def get_order_book_buysell(buy_asset, sell_asset, pct_fee_provided=None, pct_fee
 
 @API.add_method
 def get_users_pairs(addresses=[], max_pairs=12):
-    return dex.get_users_pairs(addresses, max_pairs, quote_assets=['XBP', 'XRYO'])
+    return dex.get_users_pairs(addresses, max_pairs, quote_assets=['OKM', 'XRYO'])
 
 
 @API.add_method
