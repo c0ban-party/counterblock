@@ -14,8 +14,9 @@ def get_connection():
     # mongodb-mongodb-replicaset-0, 1, 2
     if config.MONGODB_REPLICASET and config.MONGODB_REPLICA_ADDRESES:
         # 'mongodb://localhost:27017,localhost:27018/?replicaSet=foo'
+        mongo_addresses = config.MONGODB_REPLICA_ADDRESES.replace('__',',')
         mongo_source = "mongodb://{}/?replicaSet={}".format(
-            config.MONGODB_REPLICA_ADDRESES,
+            mongo_addresses,
             config.MONGODB_REPLICASET
         )
         mongo_client = pymongo.MongoClient(mongo_source)
