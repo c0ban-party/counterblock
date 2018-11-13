@@ -61,7 +61,7 @@ def get_pairs_with_orders(addresses=[], max_pairs=12):
             'quote_asset': quote_asset,
             'my_order_count': my_pair['order_count']
         }
-        if my_pair['pair'] == 'RYO/OKM':  # XCP/BTC always in first
+        if my_pair['pair'] == 'RYO/XCB':  # XCP/BTC always in first
             pairs_with_orders.insert(0, top_pair)
         else:
             pairs_with_orders.append(top_pair)
@@ -69,7 +69,7 @@ def get_pairs_with_orders(addresses=[], max_pairs=12):
     return pairs_with_orders
 
 
-def get_pairs(quote_asset='OKM', exclude_pairs=[], max_pairs=12, from_time=None):
+def get_pairs(quote_asset='XCB', exclude_pairs=[], max_pairs=12, from_time=None):
 
     bindings = []
 
@@ -148,7 +148,7 @@ def get_quotation_pairs(exclude_pairs=[], max_pairs=12, from_time=None, include_
         currency_pairs = get_pairs(quote_asset=currency, exclude_pairs=exclude_pairs, max_pairs=max_pairs, from_time=from_time)
         max_pairs = max_pairs - len(currency_pairs)
         for currency_pair in currency_pairs:
-            if currency_pair['pair'] == 'OKM/RYO':
+            if currency_pair['pair'] == 'XCB/RYO':
                 all_pairs.insert(0, currency_pair)
             else:
                 all_pairs.append(currency_pair)
@@ -177,18 +177,18 @@ def get_users_pairs(addresses=[], max_pairs=12, quote_assets=config.MARKET_LIST_
                     'base_asset': currency_pair['base_asset'],
                     'quote_asset': currency_pair['quote_asset']
                 }
-                if currency_pair['pair'] == 'OKM/RYO':  # XCP/BTC always in first
+                if currency_pair['pair'] == 'XCB/RYO':  # XCP/BTC always in first
                     top_pairs.insert(0, top_pair)
                 else:
                     top_pairs.append(top_pair)
                 all_assets += [currency_pair['base_asset'], currency_pair['quote_asset']]
 
-    if ('RYO' in quote_assets) and ('OKM/RYO' not in [p['base_asset'] + '/' + p['quote_asset'] for p in top_pairs]):
+    if ('RYO' in quote_assets) and ('XCB/RYO' not in [p['base_asset'] + '/' + p['quote_asset'] for p in top_pairs]):
         top_pairs.insert(0, {
-            'base_asset': 'OKM',
+            'base_asset': 'XCB',
             'quote_asset': 'RYO'
         })
-        all_assets += ['OKM', 'RYO']
+        all_assets += ['XCB', 'RYO']
 
     top_pairs = top_pairs[:max_pairs]
     all_assets = list(set(all_assets))
@@ -400,9 +400,9 @@ def get_assets_supply(assets=[]):
 
     supplies = {}
 
-    if 'OKM' in assets:
-        supplies['OKM'] = (util.call_jsonrpc_api("get_supply", {'asset': 'OKM'})['result'], True)
-        assets.remove('OKM')
+    if 'XCB' in assets:
+        supplies['XCB'] = (util.call_jsonrpc_api("get_supply", {'asset': 'XCB'})['result'], True)
+        assets.remove('XCB')
 
     if 'RYO' in assets:
         supplies['RYO'] = (0, True)
@@ -484,7 +484,7 @@ def get_markets_list(quote_asset=None, order_by=None):
     yesterday = int(calendar.timegm(config.state['my_latest_block']['block_time'].timetuple()) - (24 * 60 * 60))
     markets = []
     pairs = []
-    currencies = ['OKM', 'XRYO'] if not quote_asset else [quote_asset]
+    currencies = ['XCB', 'XRYO'] if not quote_asset else [quote_asset]
 
     # pairs with volume last 24h
     pairs += get_quotation_pairs(exclude_pairs=[], max_pairs=500, from_time=yesterday, include_currencies=currencies)
@@ -525,7 +525,7 @@ def get_markets_list(quote_asset=None, order_by=None):
         market['quote_divisibility'] = supplies[pair['quote_asset']][1]
         market['market_cap'] = format(D(market['supply']) * D(market['price']), ".4f")
         market['with_image'] = True if pair['base_asset'] in asset_with_image else False
-        if market['base_asset'] == 'OKM' and market['quote_asset'] == 'RYO':
+        if market['base_asset'] == 'XCB' and market['quote_asset'] == 'RYO':
             markets.insert(0, market)
         else:
             markets.append(market)

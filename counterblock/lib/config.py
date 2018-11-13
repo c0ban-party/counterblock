@@ -18,7 +18,7 @@ MULTISIG_DUST_SIZE = 5430 * 2
 ORDER_BTC_DUST_LIMIT_CUTOFF = MULTISIG_DUST_SIZE
 
 BTC = 'RYO'
-XCP = 'OKM'
+XCP = 'XCB'
 
 BTC_NAME = "c0ban"
 XCP_NAME = "c0ban-party"
@@ -28,8 +28,8 @@ COUNTERPARTY_APP_NAME = XCP_NAME.lower()
 MAX_REORG_NUM_BLOCKS = 10  # max reorg we'd likely ever see
 MAX_FORCED_REORG_NUM_BLOCKS = 20  # but let us go deeper when messages are out of sync
 
-QUOTE_ASSETS = ['RYO', 'XRYO', 'OKM']  # define the priority for quote asset
-MARKET_LIST_QUOTE_ASSETS = ['OKM', 'XRYO', 'RYO']  # define the order in the market list
+QUOTE_ASSETS = ['RYO', 'XRYO', 'XCB']  # define the priority for quote asset
+MARKET_LIST_QUOTE_ASSETS = ['XCB', 'XRYO', 'RYO']  # define the order in the market list
 
 DEFAULT_BACKEND_PORT_TESTNET = 13882
 DEFAULT_BACKEND_PORT = 3882
